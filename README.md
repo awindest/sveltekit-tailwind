@@ -1,28 +1,41 @@
-# create-svelte
+# A Simple Experiment to get Tailwind working with SvelteKit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+## Creation
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+pnpm create svelte@latest sveltekit-tailwind
+cd sveltekit-tailwind
+pnpm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Postcss config file:
 
 ```bash
-npm run dev
+# postcss.config.js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```
+
+## Tailwind config file:
+
+```bash
+# tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './src/**/*.{svelte,html,js,ts}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
 ```
 
 ## Building
